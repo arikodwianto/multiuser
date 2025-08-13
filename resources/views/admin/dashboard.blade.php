@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard Admin</title>
-</head>
-<body>
-    <h1>Selamat Datang, Admin!</h1>
-    <p>Ini adalah halaman dashboard khusus admin.</p>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Dashboard Admin
+        </h2>
+    </x-slot>
 
-    <!-- Tombol Tambah User -->
-    <a href="{{ route('admin.users.create') }}" 
-       style="display:inline-block; padding:10px 15px; background:#4CAF50; color:white; text-decoration:none; border-radius:5px;">
-       ➕ Tambah User
-    </a>
+    <div class="p-6 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+        <h1 class="text-2xl font-bold mb-4">Selamat Datang, Admin!</h1>
+        <p class="mb-6">Ini adalah halaman dashboard khusus admin.</p>
 
-    <br><br>
+        <!-- Tombol Tambah User -->
+        <a href="{{ route('admin.users.create') }}" 
+           class="inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+           ➕ Tambah User
+        </a>
 
-    <!-- Tombol Logout -->
-    <a href="{{ route('logout') }}"
-       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-       style="display:inline-block; padding:10px 15px; background:#f44336; color:white; text-decoration:none; border-radius:5px;">
-       🚪 Logout
-    </a>
+        <br><br>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
-</body>
-</html>
+        <!-- Tombol Logout -->
+        <a href="{{ route('logout') }}"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+           class="inline-block px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+           🚪 Logout
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</x-app-layout>
